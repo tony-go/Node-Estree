@@ -12,3 +12,10 @@ test("Identifier", () => {
     expect(astring.generate(program)).toStrictEqual("foo;\n");
 });
 
+test('BigIntLiteral', () => {
+    const bigint = 9007199254740991;
+
+    const program = createLineProgram(ESTree.BigIntLiteral(bigint,bigint.toString()));
+    expect(astring.generate(program)).toStrictEqual(bigint.toString() +';\n')
+});
+
